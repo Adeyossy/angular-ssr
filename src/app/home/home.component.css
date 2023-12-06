@@ -1,0 +1,8 @@
+.wacpfm-home-first {
+  height: 100vh;
+  padding: var(--wacpfm-spacing-large);
+}
+
+.wacpfm-activity {
+  padding: var(--wacpfm-spacing-large);
+}
