@@ -11,7 +11,7 @@
   --wacpfm-text-colour: black;
   --wacpfm-spacing-large: 48px;
   --wacpfm-spacing-medium: 40px;
-  --wacpfm-spacing-small: 30px;
+  --wacpfm-spacing-default: 30px;
   --wacpfm-three-colours: linear-gradient(to right, var(--wacpfm-accent-colour-red) 0%, 
                                           var(--wacpfm-accent-colour-red) 33.33%, 
                                           var(--wacpfm-accent-colour-orange) 33.33%,
@@ -24,7 +24,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .wacpfm-heading {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'ITC Avant Garde Pro Md', Arial, Helvetica, sans-serif;
+  color: var(--wacpfm-text-colour);
 }
 
 h1.wacpfm-heading-avantgarde {
@@ -56,19 +57,20 @@ p, label {
   font-size: 18px;
   line-height: 1.2em;
   letter-spacing: -0.5px;
+  color: var(--wacpfm-text-colour);
 }
 
 button {
   width: 100%;
   height: 64px;
+  padding: 2px 5%;
   background-color: transparent;
   color: var(--wacpfm-primary-colour);
   font-family: 'ITC Avant Garde Pro Md', Arial, Helvetica, sans-serif;
   border: 3px solid var(--wacpfm-primary-colour);
-  transition: color 200ms ease-in, background-color 200ms ease-in, border-color 200ms ease-in;
   font-weight: 500;
-  /* font-size: 18px; */
   text-transform: uppercase;
+  transition: color 200ms ease-in, background-color 200ms ease-in, border-color 200ms ease-in;
 }
 
 button.wacpfm-primary-button {
@@ -87,9 +89,40 @@ button:active {
   background: var(--wacpfm-three-colours);
 }
 
+.wacpfm-underline {
+  display: inline-block;
+  width: 100%;
+  padding: 8px;
+  background-color: var(--wacpfm-primary-colour);
+  box-shadow: 2px 3px var(--wacpfm-accent-colour-orange);
+  border-radius: var(--wacpfm-border-radius);
+}
+
+:disabled {
+  opacity: 0.5;
+  filter: grayscale(1);
+  cursor: not-allowed;
+}
+
 @media only screen and (min-width: 768px) {
+  :root {
+    --wacpfm-spacing-default: 36px;
+  }
+
   button:hover {
     color: var(--wacpfm-accent-colour-orange);
     border-color: var(--wacpfm-accent-colour-orange);
+  }
+
+  :disabled:hover {
+    color: unset;
+    background-color: unset;
+    border-color: unset;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  :root {
+    --wacpfm-spacing-default: 48px;
   }
 }

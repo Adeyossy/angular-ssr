@@ -1,8 +1,27 @@
 .wacpfm-home-first {
   height: 100vh;
-  padding: var(--wacpfm-spacing-large);
+  padding: var(--wacpfm-spacing-default);
+}
+
+.wacpfm-activities {
+  padding: var(--wacpfm-spacing-default);
 }
 
 .wacpfm-activity {
-  padding: var(--wacpfm-spacing-large);
+  background-color: var(--wacpfm-primary-colour-light);
+  padding: var(--wacpfm-spacing-default);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wacpfm-activity-title {
+  width: max-content;
+  margin: 0;
+}
+
+.wacpfm-activity-title-underline {
+  width: min-content;
+}
+
+button.wacpfm-activity-button {
+  width: auto;
 }
