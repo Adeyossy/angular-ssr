@@ -53,19 +53,28 @@ export class AuthService {
     );
   }
 
-  signUp(email: string, password: string): Observable<UserCredential> {
+  signUp$(email: string, password: string): Observable<UserCredential> {
     return this.getFirebaseAuth$().pipe(
       concatMap(auth => createUserWithEmailAndPassword(auth, email, password))
     );
   }
 
-  login(email: string, password: string): Observable<UserCredential> {
+  login$(email: string, password: string): Observable<UserCredential> {
     return this.getFirebaseAuth$().pipe(
       concatMap(auth => signInWithEmailAndPassword(auth, email, password))
     );
   }
 
-  verifyEmail() {
+  isEmailVerified$() {
+    return this.getFirebaseUser$().pipe(
+      map(user => {
+        if (user) return user.emailVerified;
+        throw new Error(AuthErrorCodes.NULL_USER);
+      })
+    );
+  }
+
+  verifyEmail$() {
     // sendEmailVerification is missing actionCodeSettings
     // users should be able to enter a code to be verified
     return this.getFirebaseUser$().pipe(
@@ -77,19 +86,19 @@ export class AuthService {
     )
   }
 
-  resetPassword(email: string) {
+  resetPassword$(email: string) {
     return this.getFirebaseAuth$().pipe(
       concatMap(auth => sendPasswordResetEmail(auth, email))
     )
   }
 
-  signOut() {
+  signOut$() {
     return this.getFirebaseAuth$().pipe(
       concatMap(auth => signOut(auth))
     );
   }
 
-  addDoc(collectionName: string, doc: any) {
+  addDoc$(collectionName: string, doc: any) {
     return this.getFirestore$().pipe(
       concatMap(db => addDoc(collection(db, collectionName), doc))
     )
@@ -101,26 +110,26 @@ export class AuthService {
    * @param doc - the document data to be stored
    * @returns Observable<void>
    */
-  addDocWithRef(docRef: DocumentReference, doc: any) {
+  addDocWithRef$(docRef: DocumentReference, doc: any) {
     return this.getFirestore$().pipe(
       concatMap(db => setDoc(docRef, doc))
     );
   }
 
-  getDoc(docRef: DocumentReference, doc: any) {
+  getDoc$(docRef: DocumentReference, doc: any) {
     return this.getFirestore$().pipe(
       concatMap(db => getDoc(docRef)),
       map(docSnap => docSnap.exists() ? docSnap.data() : new Error(this.FIRESTORE_NULL_DOCUMENT))
     );
   }
 
-  updateDoc(docRef: DocumentReference, delta: any) {
+  updateDoc$(docRef: DocumentReference, delta: any) {
     return this.getFirestore$().pipe(
       concatMap(db => updateDoc(docRef, delta))
     );
   }
 
-  deleteDoc(docRef: DocumentReference) {
+  deleteDoc$(docRef: DocumentReference) {
     return this.getFirestore$().pipe(
       concatMap(db => deleteDoc(docRef))
     );

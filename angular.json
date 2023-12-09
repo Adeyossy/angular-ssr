@@ -32,7 +32,10 @@
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
-            }
+            },
+            "allowedCommonJsDependencies": [
+              "undici", "@grpc/grpc-js", "@grpc/proto-loader"
+            ]
           },
           "configurations": {
             "production": {

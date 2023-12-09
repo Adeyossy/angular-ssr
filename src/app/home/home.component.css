@@ -7,10 +7,13 @@
   padding: var(--wacpfm-spacing-default);
 }
 
-.wacpfm-activity {
+.wacpfm-activities:nth-child(1) {
   background-color: var(--wacpfm-primary-colour-light);
-  padding: var(--wacpfm-spacing-default);
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wacpfm-activity {
+  padding: var(--wacpfm-spacing-default);
 }
 
 .wacpfm-activity-title {
