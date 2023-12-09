@@ -7,6 +7,7 @@
   --wacpfm-accent-colour-orange: #EB921C;
   --wacpfm-accent-colour-red: #DB3237;
   --wacpfm-background-colour: #F5F7FA;
+  --wacpfm-primary-shadow: #CCDDFF;
   --wacpfm-border-radius: 8px;
   --wacpfm-text-colour: black;
   --wacpfm-spacing-large: 48px;
@@ -52,17 +53,37 @@ h1.wacpfm-heading-avantgarde {
   opacity: 0.8;
 }
 
+.wacpfm-small-text {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
 .wacpfm-padding-default {
   padding: var(--wacpfm-spacing-default);
 }
 
-p, label {
+p, label, input {
   color: var(--wacpfm-text-colour);
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 18px;
   line-height: 1.2em;
   letter-spacing: -0.5px;
   color: var(--wacpfm-text-colour);
+}
+
+label {
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  opacity: 0.8;
+}
+
+input {
+  width: 100%;
+  display: block;
+  padding: 16px 24px;
+  border: 2px solid var(--wacpfm-primary-shadow);
+  appearance: initial;
+  margin-bottom: 4px;
 }
 
 button {
@@ -106,6 +127,14 @@ button:active {
 
 .wacpfm-heading-underline {
   width: fit-content;
+}
+
+.wacpfm-green {
+  color: var(--wacpfm-accent-colour-green);
+}
+
+.wacpfm-red {
+  color: var(--wacpfm-accent-colour-red);
 }
 
 :disabled {

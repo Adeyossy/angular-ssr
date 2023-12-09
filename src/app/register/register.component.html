@@ -11,14 +11,24 @@
         <p class="wacpfm-subheading">Sign up to begin using the Faculty App</p>
         <br>
         <label for="wacpfm-register-email">Email</label>
-        <input type="email" name="email" id="email" required placeholder="e.g. lagbaja@email.com"
-        [(ngModel)]="this.email">
-        <p class="wacpfm-input-feedback"></p>
+        <input type="email" name="email" id="wacpfm-register-email" required placeholder="e.g. lagbaja@email.com"
+        [(ngModel)]="this.email" autocomplete="off">
+        <p class="wacpfm-input-feedback wacpfm-small-text"
+        [ngClass]="emailCorrect ? 'wacpfm-green' : 'wacpfm-red'">{{emailFeedback}}</p>
         <br>
-        <label for="wacpfm-register-email">Email</label>
-        <input type="email" name="email" id="email" required placeholder="e.g. lagbaja@email.com"
-        [(ngModel)]="this.email">
-        <p class="wacpfm-input-feedback"></p>
+        <label for="wacpfm-register-password">Password</label>
+        <input type="password" name="password" id="wacpfm-register-password" required placeholder="xxxxxxxxx"
+        [ngModel]="this.password" (ngModelChange)="checkPassword($event)">
+        <p class="wacpfm-input-feedback wacpfm-small-text"
+        [ngClass]="passwordCorrect ? 'wacpfm-green' : 'wacpfm-red'">{{ passwordFeedback }}</p>
+        <br>
+        <label for="wacpfm-register-confirm-password">Confirm Password</label>
+        <input type="password" name="wacpfm-register-confirm-password" id="confirmPassword" required placeholder="xxxxxxxxx"
+        [ngModel]="this.confirmPassword" (ngModelChange)="comparePasswords($event)">
+        <p class="wacpfm-input-feedback wacpfm-small-text"
+        [ngClass]="confirmPasswordCorrect ? 'wacpfm-green' : 'wacpfm-red'">{{ confirmPasswordFeedback }}</p>
+        <br>
+        <button class="wacpfm-primary-button">Create Account</button>
       </div>
     </div>
   </div>
